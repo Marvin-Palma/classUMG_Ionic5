@@ -1,5 +1,7 @@
 {
   "name": "classUMG",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

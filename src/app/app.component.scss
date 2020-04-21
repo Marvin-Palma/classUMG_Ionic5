@@ -1,0 +1,22 @@
+
+// INICIO ----- Fuentes del App
+
+@font-face{
+    font-family: 'Baloo Bhaina 2';
+    src: url('../assets/fonts/BalooBhaina2-Medium.ttf');
+}
+
+@font-face{
+    font-family: 'Baloo Bhaina 2 Negrita';
+    src: url('../assets/fonts/BalooBhaina2-Bold.ttf');
+}
+
+@font-face{
+    font-family: 'Baloo Bhaina 2 Delgada';
+    src: url('../assets/fonts/BalooBhaina2-Regular.ttf');
+}
+
+*{
+    --ion-font-family: 'Baloo Bhaina 2 Negrita';
+}
+// FIN ----- Fuentes del App

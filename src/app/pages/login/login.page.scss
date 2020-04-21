@@ -1,0 +1,67 @@
+
+.contenidoLogin{
+    //--background: linear-gradient(0deg, #212121, #203533, #1f4946, #1d5e58, #1c726b, #1b867d, #1a9a90, #19aea2, #18c2b5, #16d7c7, #15ebda, #14ffec);
+    //--background: linear-gradient(0deg, #303841, #2c434c, #274d56, #235861, #1f636b, #1a6d76, #167880, #11828b, #0d8d95, #0998a0, #04a2aa, #00adb5);
+    //--background: linear-gradient(45deg, #4586ff, #3f8ffb, #3999f7, #32a2f4, #2cabf0, #26b4ec, #20bee8, #1ac7e4, #14d0e0, #0dd9dd, #07e3d9, #01ecd5);
+    --background: linear-gradient(20deg, #3d5af1, #3b65f1, #3870f0, #367af0, #3385f0, #3190f0, #2e9bef, #2ca6ef, #29b1ef, #27bbef, #24c6ee, #22d1ee);
+}
+
+.classUMG{
+    font-size: xx-large;
+}
+
+ion-button{
+    width: 100%;
+    border-radius: 30px !important;
+    box-shadow: 0px 14px 25px rgba(182, 30, 30, 0.59);
+}
+
+ion-grid{
+    height: 100% !important;
+}
+
+.ingresar{
+    color: white !important;
+}
+
+.crearCuenta{
+    color: white !important;
+}
+
+.imagenAbajo{
+    transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+}
+
+a{
+    color: white !important;
+}
+
+.imagenFondo{
+    background: url('../../../assets/svg/unDraw/sun-girl.svg') no-repeat;
+    background-position: right center;
+    background-size: contain;
+}
+
+.imagenInicio{
+    background: url('../../../assets/svg/unDraw/polaroid.svg') 0 0/100% 100% no-repeat;
+}
+
+.imagenTop{
+    background: url('../../../assets/svg/unDraw/space.svg') no-repeat;
+    background-position: left center;
+    background-size: contain;
+}
+
+
+ion-input{
+    background-color: white;
+    border-radius: 10px;
+    font-size: large;
+}
+
+
+
+
