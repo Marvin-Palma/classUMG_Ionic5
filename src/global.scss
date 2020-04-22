@@ -169,3 +169,14 @@
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
   }
+
+  .native-input.sc-ion-input-md{
+    padding-bottom: 0px !important;
+}
+
+.modalAvatars .modal-wrapper{
+  height: 50%;
+  top: 50%;
+  position: absolute; 
+  display: block; 
+}

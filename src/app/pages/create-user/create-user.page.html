@@ -1,11 +1,105 @@
 <ion-header class="ion-no-border" mode="ios">
   <ion-toolbar style="--background: transparent;">
     <ion-buttons>
-      <ion-back-button slot="start" mode="ios" text="Login" routerLink="/" routerDirection="forward" style="color: black;"></ion-back-button>
+      <ion-back-button slot="start" mode="ios" text="Login" routerLink="/" routerDirection="forward"
+        style="color: black;"></ion-back-button>
+      <!-- <ion-button slot="end" class="ion-no-padding"> -->
+      <!-- </ion-button> -->
     </ion-buttons>
+    <ion-icon slot="end" name="help-circle-outline" color="dark" style="zoom: 3; padding-top: 4px; padding-right: 4px;"
+      class="animated pulse infinite" routerLink="/slides-help"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="contenidoCreateUser" fullscreen>
-  
+
+  <ion-grid class="ion-no-padding">
+
+    <ion-row style="height: 25%;">
+      <ion-col>
+        <ion-avatar (click)="cambiarAvatar()">
+          <img [src]="direccionAvatar">
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
+
+
+
+    <ion-row style="height: 10%;">
+      <ion-item class="itemNombre">
+        <ion-input class="inputNombre" maxlength="20" placeholder="Ingresa tu nickname" [(ngModel)]="usuario.nombre"></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <ion-row style="height: 40%;">
+
+
+      <ion-col>
+        <ion-row style="height: 28%;">
+          <ion-col size="2"></ion-col>
+          <ion-col size="8">
+            <ion-row>
+              <ion-label>Correo:</ion-label>
+            </ion-row>
+            <ion-row>
+              <ion-input placeholder="estudiante1@miumg.edu.gt" maxlength="30" class="inputDatosPersonales" [(ngModel)]="usuario.email"></ion-input>
+            </ion-row>
+          </ion-col>
+          <ion-col size="2">
+            <!-- <ion-icon style="zoom: 2.1; margin-left: 8px; margin-top: 23px;" name="help-circle-outline" color="dark" class="animated pulse infinite" (click)="mostrarPop( $event )"></ion-icon> -->
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="height: 28%;">
+          <ion-col size="2"></ion-col>
+          <ion-col size="8">
+            <ion-row>
+              <ion-label>Contraseña:</ion-label>
+            </ion-row>
+            <ion-row>
+                <ion-item style="border-radius: 10px; width: 100%;" lines="none">
+                  <ion-input placeholder="Mínimo 8 carácteres" class="inputDatosPersonales" [type]="type1" maxlength="19" [(ngModel)]="usuario.password"></ion-input>
+                  <ion-icon [name]="eye1" 
+                  slot="end" 
+                  mode="md" 
+                  (click)="eye1=='eye-outline'?eye1='eye-off-outline':eye1='eye-outline'; type1=='password'?type1='text':type1='password'"></ion-icon>
+                </ion-item>
+            </ion-row>
+          </ion-col>
+          <ion-col size="2"></ion-col>
+        </ion-row>
+
+        <ion-row style="height: 28%;">
+          <ion-col size="2"></ion-col>
+          <ion-col size="8">
+            <ion-row>
+              <ion-label>Confirma tu contraseña:</ion-label>
+            </ion-row>
+            <ion-row>
+                <ion-item style="border-radius: 10px; width: 100%;" lines="none">
+                  <ion-input placeholder="Mínimo 8 carácteres" class="inputDatosPersonales" [type]="type2" maxlength="19" [(ngModel)]="usuario.passwordConfirm"></ion-input>
+                  <ion-icon [name]="eye2" slot="end" mode="md" 
+                  (click)="eye2=='eye-outline'?eye2='eye-off-outline':eye2='eye-outline'; type2=='password'?type2='text':type2='password'">
+                  </ion-icon>
+                </ion-item>
+            </ion-row>
+          </ion-col>
+          <ion-col size="2"></ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="height: 25%;">
+      <ion-col size="3"></ion-col>
+      <ion-col size="6">
+        <br>
+        <ion-button color="dark" shape="round" expand="full" (click)="crearCuenta()">
+          <ion-label class="ingresar">Crear mi cuenta</ion-label>
+        </ion-button>
+      </ion-col>
+      <ion-col size="3"></ion-col>
+    </ion-row>
+
+  </ion-grid>
+
 </ion-content>

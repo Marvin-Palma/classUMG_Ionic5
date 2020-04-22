@@ -3,14 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { InputComponent } from './input/input.component';
 import { IonicModule } from '@ionic/angular';
+import { PopoverCreateUserComponent } from './popover-create-user/popover-create-user.component';
 
 
 @NgModule({
   declarations: [
-    InputComponent
+    InputComponent,
+    PopoverCreateUserComponent
   ],
   exports:[
-    InputComponent
+    InputComponent,
+    PopoverCreateUserComponent
   ],
   imports: [
     CommonModule,
