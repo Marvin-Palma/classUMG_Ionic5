@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'modal-avatars',
     loadChildren: () => import('./pages/modal-avatars/modal-avatars.module').then( m => m.ModalAvatarsPageModule)
   },
+  {
+    path: 'slides-help-create-user',
+    loadChildren: () => import('./pages/slides-help-create-user/slides-help-create-user.module').then( m => m.SlidesHelpCreateUserPageModule)
+  },
 ];
 
 @NgModule({

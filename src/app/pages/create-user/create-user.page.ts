@@ -46,10 +46,13 @@ export class CreateUserPage implements OnInit {
 
     const {data} = await modal.onDidDismiss();
 
-    console.log('Respuesta Modal: ', data);
+    if(data!=undefined){
+      this.direccionAvatar=data.avatar;
+    }
   }
 
   crearCuenta(){
+    this.usuario.avatar=this.direccionAvatar;
     if((this.usuario.nombre=='' || this.usuario.email=='' || this.usuario.password=='' || this.usuario.passwordConfirm=='')){
       this.presentAlert("Ingresa todos los campos.", "");
       return;

@@ -1,9 +1,28 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>modal-avatars</ion-title>
+  <ion-toolbar class="ion-no-border" color="purple">
+    <ion-title class="ion-text-center" style="padding: 8px 8px 8px 8px;">Selecciona un avatar</ion-title>
+    <ion-segment mode="ios" class="ion-segment ion-margin" (ionChange)="cambioCategoria($event)">
+    
+      <ion-segment-button value="Masculino">
+        <ion-label style="font-size: medium;">Masculino</ion-label>
+      </ion-segment-button>
+      
+      <ion-segment-button value="Femenino">
+        <ion-label style="font-size: medium;">Femenino</ion-label>
+      </ion-segment-button>
+    
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="contentModal">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center" size="4" *ngFor="let avatar of avatars; let i = index;">
+        <ion-icon style="zoom: 6;" src={{avatar}} (click)="seleccionaAvatar(avatar)"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

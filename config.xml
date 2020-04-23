@@ -12,7 +12,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity">
-        <activity name="android:windowSoftInputMode" value="stateVisible|adjustResize" />
+        <activity name="android:windowSoftInputMode" value="adjustResize" />
     </edit-config>
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />

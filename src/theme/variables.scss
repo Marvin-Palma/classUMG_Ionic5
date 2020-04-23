@@ -90,6 +90,14 @@
   --ion-color-sky-contrast-rgb: 0,0,0;
   --ion-color-sky-shade: #2792d2;
   --ion-color-sky-tint: #41aff1;
+
+  //purple
+  --ion-color-purple: #785AE6;
+  --ion-color-purple-rgb: 120,90,230;
+  --ion-color-purple-contrast: #ffffff;
+  --ion-color-purple-contrast-rgb: 255,255,255;
+  --ion-color-purple-shade: #6a4fca;
+  --ion-color-purple-tint: #866be9;
 }
 
 .ion-color-dark {
@@ -110,6 +118,14 @@
   --ion-color-tint: var(--ion-color-sky-tint);
 }
 
+.ion-color-purple {
+  --ion-color-base: var(--ion-color-purple);
+  --ion-color-base-rgb: var(--ion-color-purple-rgb);
+  --ion-color-contrast: var(--ion-color-purple-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-purple-contrast-rgb);
+  --ion-color-shade: var(--ion-color-purple-shade);
+  --ion-color-tint: var(--ion-color-purple-tint);
+}
 // @media (prefers-color-scheme: dark) {
 //   /*
 //    * Dark Colors

@@ -1,0 +1,59 @@
+<ion-header class="ion-no-border" mode="ios">
+  <ion-toolbar style="--background: transparent;">
+    <ion-buttons>
+      <ion-back-button slot="start" mode="ios" text="" routerLink="/create-user" routerDirection="forward" style="color: black;"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="contenidoSlides" fullscreen>
+
+  <ion-slides pager="true" class="slide-full">
+
+    <ion-slide *ngFor="let slide of slides">
+      <ion-card mode="ios">
+        <img [src]="slide.img" class="slide-image">
+
+        <ion-card-header>
+          <ion-card-title>{{slide.titulo}}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          {{slide.desc}}
+          <div *ngIf="slide.desc2!=''">
+            <br>
+            <u>{{slide.desc2}}</u>
+          </div>
+          <div *ngIf="slide.desc3!=''">
+            <br>
+            {{slide.desc3}}
+          </div>
+          <div *ngIf="slide.desc4!=''">
+            <br>
+            <u>{{slide.desc4}}</u>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card mode="ios">
+        <img src="/assets/svg/unDraw/polaroid.svg" class="slide-image">
+
+        <ion-card-header>
+          <ion-card-title>¡Creemos tu cuenta!</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          ¡Personaliza e identifícate! Queremos que te sientas tú mismo aquí dentro.
+          <br><br><br>
+          <ion-button color="primary" routerLink="/create-user" routerDirection="backward">
+            ¡Personalizar!
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    
+  </ion-slides>
+
+</ion-content>

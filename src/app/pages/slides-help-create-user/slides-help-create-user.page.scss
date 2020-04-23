@@ -1,0 +1,56 @@
+
+.contenidoSlides{
+    //--background: linear-gradient(0deg, #212121, #203533, #1f4946, #1d5e58, #1c726b, #1b867d, #1a9a90, #19aea2, #18c2b5, #16d7c7, #15ebda, #14ffec);
+    //--background: linear-gradient(0deg, #303841, #2c434c, #274d56, #235861, #1f636b, #1a6d76, #167880, #11828b, #0d8d95, #0998a0, #04a2aa, #00adb5);
+    //--background: linear-gradient(45deg, #4586ff, #3f8ffb, #3999f7, #32a2f4, #2cabf0, #26b4ec, #20bee8, #1ac7e4, #14d0e0, #0dd9dd, #07e3d9, #01ecd5);
+    //--background: linear-gradient(20deg, #3d5af1, #3b65f1, #3870f0, #367af0, #3385f0, #3190f0, #2e9bef, #2ca6ef, #29b1ef, #27bbef, #24c6ee, #22d1ee);
+    //--background: linear-gradient(20deg, rgb(31, 162, 255), rgb(18, 216, 250), rgb(166, 255, 203));
+    --background: linear-gradient(20deg, #3d5af1, #3b65f1, #3870f0, #367af0, #3385f0, #3190f0, #2e9bef, #2ca6ef, #29b1ef, #27bbef, #24c6ee, #22d1ee);
+}
+
+ion-back-button{
+    font-size: 20px;
+    padding: 8px;
+}
+
+.slide-full {
+    height: 100% !important;
+}
+
+ion-card {
+    overflow: unset !important;
+}
+
+ion-card {
+    height: 400px;
+    width: 300px;
+    box-shadow: 0px 14px 25px rgba(182, 30, 30, 0.59);
+}
+
+.slide-image {
+    width: 150px;
+    text-align: center;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    position: relative;
+    top: -50px;
+}
+
+ion-card-header {
+    position: relative;
+    top: -50px;
+}
+
+ion-card-content {
+    position: relative;
+    top: -50px;
+}
+
+ion-slides {
+    --bullet-background: white;
+    --bullet-background-active: white;
+}
+
