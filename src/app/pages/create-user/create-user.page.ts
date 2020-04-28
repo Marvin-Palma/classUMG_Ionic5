@@ -59,7 +59,7 @@ export class CreateUserPage implements OnInit {
     }
     if(/^\w+([\.-]?\w+)*@miumg.edu.gt/.test(this.usuario.email)){
       if(this.usuario.password===this.usuario.passwordConfirm){
-        if(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(this.usuario.password)){
+        if(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!$%@#£€*?&]{8,}$/.test(this.usuario.password)){
           console.log("Contraseña válida");
           this.navController.navigateRoot('/slides-create-user')
 
@@ -89,22 +89,5 @@ export class CreateUserPage implements OnInit {
 
     await alert.present();
   }
-
-
-  // async mostrarPop( evento ){
-  //   const popover = await this.popoverController.create({
-  //     component: PopoverCreateUserComponent,
-  //     event: evento,
-  //     mode: 'ios',
-  //     backdropDismiss: true
-  //   });
-
-  //   await popover.present();
-
-  //   //const {data} = await popover.onDidDismiss();
-  //   const {data} = await popover.onWillDismiss();
-
-  //   console.log('Padre ', data);
-  // }
 
 }

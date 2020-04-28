@@ -7,8 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { CreateUserPageRoutingModule } from './create-user-routing.module';
 
 import { CreateUserPage } from './create-user.page';
-// import { ComponentsModule } from '../../components/components.module';
-// import { PopoverCreateUserComponent } from '../../components/popover-create-user/popover-create-user.component';
 import { ModalAvatarsPage } from '../modal-avatars/modal-avatars.page';
 import { ModalAvatarsPageModule } from '../modal-avatars/modal-avatars.module';
 
@@ -22,7 +20,6 @@ import { ModalAvatarsPageModule } from '../modal-avatars/modal-avatars.module';
     IonicModule,
     CreateUserPageRoutingModule,
     ModalAvatarsPageModule
-    // ComponentsModule
   ],
   declarations: [CreateUserPage]
 })

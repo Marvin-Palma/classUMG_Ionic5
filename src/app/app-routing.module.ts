@@ -31,6 +31,14 @@ const routes: Routes = [
     path: 'slides-help-create-user',
     loadChildren: () => import('./pages/slides-help-create-user/slides-help-create-user.module').then( m => m.SlidesHelpCreateUserPageModule)
   },
+  {
+    path: 'modal-recuperacion-contrasena',
+    loadChildren: () => import('./pages/modal-recuperacion-contrasena/modal-recuperacion-contrasena.module').then( m => m.ModalRecuperacionContrasenaPageModule)
+  },
+  {
+    path: 'reset-password',
+    loadChildren: () => import('./pages/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
+  },
 ];
 
 @NgModule({
