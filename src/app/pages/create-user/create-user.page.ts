@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController, ModalController } from '@ionic/angular';
+import { AlertController, NavController, ModalController, LoadingController } from '@ionic/angular';
 import { ModalAvatarsPage } from '../modal-avatars/modal-avatars.page';
+
+import { CreateUserService } from '../../services/create-user/create-user.service';
 
 @Component({
   selector: 'app-create-user',
@@ -11,22 +13,29 @@ export class CreateUserPage implements OnInit {
 
   direccionAvatar:string;
   numeroImagen:any;
+  respuesta:any;
+  loading: any;
 
   usuario = {
     avatar:'',
     nombre:'',
     email: '',
     password: '',
-    passwordConfirm:''
+    passwordConfirm:'',
+    pregunta: '',
+    respuestaPregunta:''
   }
 
   eye1:string="eye-outline";
   eye2:string="eye-outline";
+  eye3:string="eye-outline";
 
   type1:string="password";
   type2:string="password";
+  type3:string="password";
 
-  constructor(private alertController: AlertController, private navController: NavController, private modalController: ModalController) { }
+  constructor(private alertController: AlertController, private navController: NavController, private modalController: ModalController,
+    private createUserService: CreateUserService, private loadingController:LoadingController) { }
 
   ngOnInit() {
     this.numeroImagen=Math.floor(Math.random() * (96 - 1)) + 1;
@@ -60,9 +69,27 @@ export class CreateUserPage implements OnInit {
     if(/^\w+([\.-]?\w+)*@miumg.edu.gt/.test(this.usuario.email)){
       if(this.usuario.password===this.usuario.passwordConfirm){
         if(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!$%@#£€*?&]{8,}$/.test(this.usuario.password)){
-          console.log("Contraseña válida");
-          this.navController.navigateRoot('/slides-create-user')
+          if(this.usuario.pregunta!=''){
+            if(this.usuario.respuestaPregunta!=''){
+        
+              this.presentLoading( 'Espere...');
+              this.createUserService.createUser(this.usuario).subscribe(res=>{
+                this.loading.dismiss();
+                this.respuesta=res;
+                if(this.respuesta.status==true){
+                  this.navController.navigateRoot('/slides-create-user');
+                }else{
+                  this.presentAlert(this.respuesta.mensaje, "¡Oye!");
+                }
+              });
 
+
+            }else{
+              this.presentAlert("Ingresa una respuesta a la pregunta de seguridad.", "¡Oye!");
+            }
+          }else{
+            this.presentAlert("Selecciona una pregunta de seguridad.", "¡Hey!");
+          }
         }else{
           this.presentAlert("Contraseña demasiado insegura, debe contener al menos una letra mayúscula, un número y 8 caracteres.", "¡Ups!");
         }
@@ -90,4 +117,15 @@ export class CreateUserPage implements OnInit {
     await alert.present();
   }
 
+  async presentLoading( mensaje: string) {
+    this.loading = await this.loadingController.create({
+      mode:'ios',
+      spinner:'bubbles',
+      translucent: true,
+      animated:true,
+      message: mensaje,
+      cssClass: 'loading'
+    });
+    await this.loading.present();
+  }
 }

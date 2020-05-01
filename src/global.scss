@@ -187,3 +187,13 @@
   position: absolute; 
   display: block; 
 }
+
+.loading{
+  --spinner-color: var(--ion-color-purple);
+  --backdrop-opacity: 15%;
+  font-size: larger;
+}
+
+.loading-translucent.sc-ion-loading-ios-h .loading-wrapper.sc-ion-loading-ios {
+  background: transparent;
+}
