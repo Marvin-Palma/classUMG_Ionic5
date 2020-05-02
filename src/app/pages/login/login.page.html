@@ -29,7 +29,7 @@
         <ion-row style="height: 35%;">
           <ion-col size="2"></ion-col>
           <ion-col size="8">
-            <ion-input [placeholder]="'Usuario'" class="ion-margin-bottom" style="padding-left: 8px !important;" mode="md" maxlength="15"></ion-input>
+            <ion-input [placeholder]="'Usuario'" class="ion-margin-bottom inputUsuario" mode="md" maxlength="15" [(ngModel)]='usuario.usuario'></ion-input>
           </ion-col>
           <ion-col size="2"></ion-col>
         </ion-row>
@@ -38,7 +38,7 @@
           <ion-col size="2"></ion-col>
           <ion-col size="8">
             <ion-item style="border-radius: 10px; height: 70%;" lines="none">
-              <ion-input [placeholder]="'Contraseña'" [type]="tipoInput" class="ion-margin-bottom" mode="md" maxlength="19">
+              <ion-input [placeholder]="'Contraseña'" [type]="tipoInput" class="ion-margin-bottom" mode="md" maxlength="19" [(ngModel)]='usuario.password'>
               </ion-input>
               <ion-icon [name]="eye" slot="end" style="padding-bottom: 9%;" mode="md" (click)="clickEye()"></ion-icon>
             </ion-item>
@@ -57,7 +57,7 @@
           </ion-col>
           <ion-col size="4" class="ion-padding-start">
 
-            <ion-button color="dark" shape="round" (click)="resetPassword()">
+            <ion-button color="dark" shape="round" (click)="login()">
               <ion-label class="ingresar">Ingresar</ion-label>
             </ion-button>
 

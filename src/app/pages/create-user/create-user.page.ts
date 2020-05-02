@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController, ModalController, LoadingController } from '@ionic/angular';
+import { AlertController, NavController, ModalController } from '@ionic/angular';
 import { ModalAvatarsPage } from '../modal-avatars/modal-avatars.page';
 
 import { CreateUserService } from '../../services/create-user/create-user.service';
+import { UtilityService } from '../../services/utility/utility.service';
 
 @Component({
   selector: 'app-create-user',
@@ -35,7 +36,7 @@ export class CreateUserPage implements OnInit {
   type3:string="password";
 
   constructor(private alertController: AlertController, private navController: NavController, private modalController: ModalController,
-    private createUserService: CreateUserService, private loadingController:LoadingController) { }
+    private createUserService: CreateUserService, private utilityService: UtilityService) { }
 
   ngOnInit() {
     this.numeroImagen=Math.floor(Math.random() * (96 - 1)) + 1;
@@ -60,72 +61,45 @@ export class CreateUserPage implements OnInit {
     }
   }
 
-  crearCuenta(){
+  async crearCuenta(){
     this.usuario.avatar=this.direccionAvatar;
     if((this.usuario.nombre=='' || this.usuario.email=='' || this.usuario.password=='' || this.usuario.passwordConfirm=='')){
-      this.presentAlert("Ingresa todos los campos.", "");
+      this.utilityService.alertSimple("Información inválida.", "", "Ingresa todos los campos.");
       return;
     }
+
+    
     if(/^\w+([\.-]?\w+)*@miumg.edu.gt/.test(this.usuario.email)){
       if(this.usuario.password===this.usuario.passwordConfirm){
         if(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!$%@#£€*?&]{8,}$/.test(this.usuario.password)){
           if(this.usuario.pregunta!=''){
             if(this.usuario.respuestaPregunta!=''){
-        
-              this.presentLoading( 'Espere...');
+              var loading = await this.utilityService.iniciarLoading('Espere...');
               this.createUserService.createUser(this.usuario).subscribe(res=>{
-                this.loading.dismiss();
+                this.utilityService.terminarLoading(loading);
                 this.respuesta=res;
                 if(this.respuesta.status==true){
                   this.navController.navigateRoot('/slides-create-user');
+                }else if(this.respuesta.codigo==204){ //Email en uso 
+                  this.utilityService.alertSimple("Información inválida", "¡Oye!", this.respuesta.mensaje);
                 }else{
-                  this.presentAlert(this.respuesta.mensaje, "¡Oye!");
+                  this.utilityService.alertSimple("Error!", "¡Ups!", 'Parece que algo ha salido mal, intenta más tarde.');
                 }
               });
-
-
             }else{
-              this.presentAlert("Ingresa una respuesta a la pregunta de seguridad.", "¡Oye!");
+              this.utilityService.alertSimple("Información inválida.", "¡Oye!", "Ingresa una respuesta a la pregunta de seguridad.");
             }
           }else{
-            this.presentAlert("Selecciona una pregunta de seguridad.", "¡Hey!");
+            this.utilityService.alertSimple("Información inválida.", "¡Hey!", "Selecciona una pregunta de seguridad.");
           }
         }else{
-          this.presentAlert("Contraseña demasiado insegura, debe contener al menos una letra mayúscula, un número y 8 caracteres.", "¡Ups!");
+          this.utilityService.alertSimple("Información inválida.", "¡Ups!", "Contraseña demasiado insegura, debe contener al menos una letra mayúscula, un número y 8 caracteres.");
         }
       }else{
-        this.presentAlert("Las contraseñas no coinciden.", "¡Bah!");
+        this.utilityService.alertSimple("Información inválida.", "¡Bah!", "Las contraseñas no coinciden.");
       }
     }else{
-      this.presentAlert("Recuerda, solo aceptamos correos con extensión @miumg.edu.gt", "¡Correo inválido!");
+      this.utilityService.alertSimple("Información inválida.", "¡Correo inválido!", "Recuerda, solo aceptamos correos con extensión @miumg.edu.gt");
     }
-  }
-
-  async presentAlert(mensaje, subtitulo) {
-    const alert = await this.alertController.create({
-      header: 'Información inválida',
-      subHeader: subtitulo,
-      message: mensaje,
-      mode:'ios',
-      buttons: [
-        {
-          text: 'OK'
-        }
-      ]
-    });
-
-    await alert.present();
-  }
-
-  async presentLoading( mensaje: string) {
-    this.loading = await this.loadingController.create({
-      mode:'ios',
-      spinner:'bubbles',
-      translucent: true,
-      animated:true,
-      message: mensaje,
-      cssClass: 'loading'
-    });
-    await this.loading.present();
   }
 }
