@@ -12,10 +12,13 @@ import { ModalRecuperacionContrasenaPage } from '../modal-recuperacion-contrasen
 import { ModalRecuperacionContrasenaPageModule } from '../modal-recuperacion-contrasena/modal-recuperacion-contrasena.module';
 import { ResetPasswordPage } from '../reset-password/reset-password.page';
 import { ResetPasswordPageModule } from '../reset-password/reset-password.module';
+import { ModalVerificacionEmailPage } from '../modal-verificacion-email/modal-verificacion-email.page';
+import { ModalVerificacionEmailPageModule } from '../modal-verificacion-email/modal-verificacion-email.module';
 
 @NgModule({
   entryComponents:[
     ModalRecuperacionContrasenaPage,
+    ModalVerificacionEmailPage,
     ResetPasswordPage
   ],
   imports: [
@@ -25,6 +28,7 @@ import { ResetPasswordPageModule } from '../reset-password/reset-password.module
     LoginPageRoutingModule,
     ComponentsModule,
     ModalRecuperacionContrasenaPageModule,
+    ModalVerificacionEmailPageModule,
     ResetPasswordPageModule
   ],
   declarations: [LoginPage]

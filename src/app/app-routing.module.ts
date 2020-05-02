@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'reset-password',
     loadChildren: () => import('./pages/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
   },
+  {
+    path: 'modal-verificacion-email',
+    loadChildren: () => import('./pages/modal-verificacion-email/modal-verificacion-email.module').then( m => m.ModalVerificacionEmailPageModule)
+  },
 ];
 
 @NgModule({

@@ -188,6 +188,13 @@
   display: block; 
 }
 
+.modalVerificacionEmail .modal-wrapper{
+  height: 75%;
+  top: 25%;
+  position: absolute; 
+  display: block; 
+}
+
 .loading{
   --spinner-color: var(--ion-color-purple);
   --backdrop-opacity: 15%;
