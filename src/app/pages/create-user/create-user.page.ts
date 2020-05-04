@@ -14,8 +14,6 @@ export class CreateUserPage implements OnInit {
 
   direccionAvatar: string;
   numeroImagen: any;
-  respuesta: any;
-  loading: any;
 
   usuario = {
     avatar: '',
@@ -83,11 +81,10 @@ export class CreateUserPage implements OnInit {
     var loading = await this.utilityService.iniciarLoading('Espere...');
     this.createUserService.createUser(this.usuario).subscribe(res => {
       this.utilityService.terminarLoading(loading);
-      this.respuesta = res;
-      if (this.respuesta.status == true) {
+      if (res.status == true) {
         this.navController.navigateRoot('/slides-create-user');
-      } else if (this.respuesta.codigo == 204) { //Email en uso 
-        this.utilityService.alertSimple("Información inválida", "¡Oye!", this.respuesta.mensaje);
+      } else if (res.codigo == 204) { //Email en uso 
+        this.utilityService.alertSimple("Información inválida", "¡Oye!", res.mensaje);
       } else {
         this.utilityService.alertSimple("Error!", "¡Ups!", 'Parece que algo ha salido mal, intenta más tarde.');
       }

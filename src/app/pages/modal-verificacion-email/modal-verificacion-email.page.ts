@@ -12,8 +12,6 @@ export class ModalVerificacionEmailPage implements OnInit {
 
   @Input() usuario;
 
-  respuesta:any;
-
   datosVerificacion = {
     email:'',
     codigo:''
@@ -32,17 +30,15 @@ export class ModalVerificacionEmailPage implements OnInit {
     var loading = await this.utilityService.iniciarLoading("Espere...");
     this.loginService.verificarEmail(this.datosVerificacion).subscribe(res=>{
       this.utilityService.terminarLoading(loading);
-      console.log(res);
-      this.respuesta=res;
 
-      if(this.respuesta.codigo==201) return this.utilityService.alertSimple('Información inválida', '¡Ups!', 'No encontramos tu email.');
+      if(res.codigo==201) return this.utilityService.alertSimple('Información inválida', '¡Ups!', 'No encontramos tu email.');
       
-      if(this.respuesta.codigo==204){
+      if(res.codigo==204){
         this.datosVerificacion.codigo='';
         return this.utilityService.alertSimple('Información inválida', '¡Hey!', 'Código de validación incorrecto.');
       } 
       
-      if(this.respuesta.codigo==200){
+      if(res.codigo==200){
         //Autorizado
         this.modalController.dismiss({
           autorizado: 'Autorizado' 

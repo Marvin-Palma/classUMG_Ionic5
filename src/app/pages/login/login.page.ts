@@ -16,7 +16,6 @@ export class LoginPage implements OnInit {
 
   eye:string;
   tipoInput:string;
-  respuesta:any;
   data:any='';
 
   usuario={
@@ -83,20 +82,19 @@ export class LoginPage implements OnInit {
     var loading = await this.utilityService.iniciarLoading("Espere...");
     this.loginService.login(this.usuario).subscribe(async res=>{
       this.utilityService.terminarLoading(loading);
-      this.respuesta=res;
       
       //Credenciales incorrectas
-      if(this.respuesta.codigo==201) return this.utilityService.alertSimple('Información inválida', '¡Ups!', 'Credenciales incorrectas.');
+      if(res.codigo==201) return this.utilityService.alertSimple('Información inválida', '¡Ups!', 'Credenciales incorrectas.');
       //Usuario reseteado
-      if(this.respuesta.codigo==203) return this.utilityService.alertSimple('Encontramos algo para ti', '¡Hey!', 'Contraseña incorrecta, usuario reseteado, por favor valida tu email.');
+      if(res.codigo==203) return this.utilityService.alertSimple('Encontramos algo para ti', '¡Hey!', 'Contraseña incorrecta, usuario reseteado, por favor valida tu email.');
       
       
-      if(this.respuesta.codigo==200){
+      if(res.codigo==200){
         //HOME BIENVENIDO
         console.log("HEMOS HECHO LOGIN");
-      }else if(this.respuesta.codigo==202){
+      }else if(res.codigo==202){
         //INGRESA LAS NUEVAS CREDENCIALES
-      }else if(this.respuesta.codigo==210){
+      }else if(res.codigo==210){
         //INGRESA CÓDIGO DE VERIFICACIÓN
         await this.modalVerificacionEmail();
 

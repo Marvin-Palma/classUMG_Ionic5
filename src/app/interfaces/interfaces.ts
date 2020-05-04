@@ -1,5 +1,8 @@
-export interface Componente{
-    icon:string;
-    name:string;
-    redirectTo:string;
-}
+
+
+export interface respuestaServidorNormal{
+    codigo?:Number,
+    status?:Boolean,
+    mensaje?:String
+  }
+  
