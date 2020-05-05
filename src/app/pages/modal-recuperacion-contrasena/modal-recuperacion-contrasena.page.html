@@ -7,7 +7,7 @@
 
 <ion-content class="contenidoRecuperarPassword">
 
-  <ion-grid>
+  <ion-grid *ngIf="stepOne">
     <ion-row style="height: 50px;"></ion-row>
     <ion-row>
       <ion-col size="12" class="ion-text-center">
@@ -23,8 +23,40 @@
             <br><br>
             <ion-input placeholder="estudiante1@miumg.edu.gt" class="inputCorreo" [(ngModel)]="email"></ion-input>
             <br><br>
-            <ion-button color="purple" (click)="recuperarPassword()">
+            <ion-button color="purple" (click)="recuperarPasswordMethod()">
               ¡Recuperar!
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="!stepOne">
+    <ion-row style="height: 50px;"></ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <ion-card mode="ios">
+          <img src="/assets/svg/unDraw/security.svg" class="imageInformacionRecuperarPassword">
+      
+          <ion-card-header>
+            <ion-card-title>¡No te preocupes!</ion-card-title>
+          </ion-card-header>
+      
+          <ion-card-content>
+            Responde esta pregunta de seguridad para que podamos verificar que eres tú, luego te enviaremos a tu email tu contraseña provisional.
+            <br><br>
+            <ion-label style="color: black;">{{this.preguntaDeSeguridad}}</ion-label>
+            <br><br>
+            <ion-item style="border-radius: 10px; width: 100%;" lines="none">
+              <ion-input placeholder="Ingresa tu respuesta" class="inputDatosPersonales" [type]="type" maxlength="20" [(ngModel)]="respuestaPreguntaDeSeguridad"></ion-input>
+              <ion-icon [name]="eye" slot="end" mode="md" 
+              (click)="eye=='eye-outline'?eye='eye-off-outline':eye='eye-outline'; type=='password'?type='text':type='password'">
+              </ion-icon>
+            </ion-item>
+            <br><br>
+            <ion-button color="purple" (click)="verificarRespuestaDePregunta()">
+              ¡Soy yo!
             </ion-button>
           </ion-card-content>
         </ion-card>

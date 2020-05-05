@@ -17,6 +17,7 @@ export class LoginPage implements OnInit {
   eye:string;
   tipoInput:string;
   data:any='';
+  dataNuevasCrendenciales:any='';
 
   usuario={
     usuario:'',
@@ -39,12 +40,15 @@ export class LoginPage implements OnInit {
   async modalLoginNuevasCredenciales(){
     const modal = await this.modalController.create({
       component: ResetPasswordPage,
-      cssClass: 'modalRecuperarPassword'
+      cssClass: 'modalRecuperarPassword',
+      componentProps: {
+        usuario : this.usuario.usuario
+      }
     });
 
     await modal.present();
 
-    const {data} = await modal.onDidDismiss();
+    this.dataNuevasCrendenciales = await modal.onDidDismiss();
   }
 
   async recuperarPassword(){
@@ -86,7 +90,7 @@ export class LoginPage implements OnInit {
       //Credenciales incorrectas
       if(res.codigo==201) return this.utilityService.alertSimple('Información inválida', '¡Ups!', 'Credenciales incorrectas.');
       //Usuario reseteado
-      if(res.codigo==203) return this.utilityService.alertSimple('Encontramos algo para ti', '¡Hey!', 'Contraseña incorrecta, usuario reseteado, por favor valida tu email.');
+      if(res.codigo==203) return this.utilityService.alertSimple('¡Hey!', '¡Parece que lo has olvidado!', 'Contraseña incorrecta, usuario reseteado, por favor valida tu email.');
       
       
       if(res.codigo==200){
@@ -94,6 +98,13 @@ export class LoginPage implements OnInit {
         console.log("HEMOS HECHO LOGIN");
       }else if(res.codigo==202){
         //INGRESA LAS NUEVAS CREDENCIALES
+        console.log('Ingresa tus nuevas credenciales');
+        await this.modalLoginNuevasCredenciales();
+
+        if(this.dataNuevasCrendenciales.data.actualizado=='Actualizado'){
+          this.usuario.password=this.dataNuevasCrendenciales.data.password;
+          return this.login();
+        }
       }else if(res.codigo==210){
         //INGRESA CÓDIGO DE VERIFICACIÓN
         await this.modalVerificacionEmail();
@@ -104,7 +115,7 @@ export class LoginPage implements OnInit {
         
       }else{ 
         //ERROR DEL SERVIDOR
-        this.utilityService.alertSimple("Error!", "¡Ups!", 'Parece que algo ha salido mal, intenta más tarde.');
+        this.utilityService.alertSimple("¡Ups!", "Error en el servidor, por favor intenta más tarde.", `Código de error: ${res.codigo}`);
       }
     });
 
