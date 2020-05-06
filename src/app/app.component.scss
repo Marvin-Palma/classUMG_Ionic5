@@ -20,3 +20,48 @@
     --ion-font-family: 'Baloo Bhaina 2 Negrita';
 }
 // FIN ----- Fuentes del App
+
+
+
+ion-avatar{
+    text-align: center;
+    zoom: 1.4;
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 6%;
+}
+
+ion-avatar img{
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    border: solid rgb(120, 90, 230) !important;
+}
+
+.label-centrado{
+    width: 100%;
+    text-align: center;
+}
+
+ion-list{
+    margin-top: 20px;
+    background-color: transparent;
+}
+
+ion-icon{
+    zoom: 1.6;
+    margin: 0px 15px 0px 0px;
+}
+
+ion-content{
+    // --background: linear-gradient(220.6deg, rgb(116, 255, 217) 11.2%, rgb(88, 200, 223) 91.1%);
+    // --background: linear-gradient(20.6deg, rgb(179, 255, 171), rgb(18, 255, 247));
+    // --background: linear-gradient(50.6deg, rgb(28, 216, 210), rgb(147, 237, 199));
+    --background: linear-gradient(35deg, rgb(31, 162, 255), rgb(18, 216, 250), rgb(166, 255, 203));
+    // --background: linear-gradient(20.5deg, rgb(17, 255, 189) 5.7%, rgb(151, 253, 225) 83.2%);
+}
+
+ion-item{
+    --background: transparent;
+    margin: 10px 0px 10px 0px;
+}

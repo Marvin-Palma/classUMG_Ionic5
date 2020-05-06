@@ -1,0 +1,27 @@
+
+
+ion-avatar{
+    zoom: 0.85;
+    background: linear-gradient(35deg, rgb(18, 216, 250), rgb(166, 255, 203));
+    margin: 8px;
+}
+
+ion-title{
+    text-align: center;
+    font-size: x-large;
+}
+
+.borde{
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    border: solid rgb(120, 90, 230) !important;
+}
+
+ion-icon{
+    zoom: 1.7;
+}
+
+ion-toolbar{
+    --background: transparent;
+    --ion-color-base: transparent !important;
+}

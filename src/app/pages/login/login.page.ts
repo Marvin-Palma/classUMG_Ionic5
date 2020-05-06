@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { ModalRecuperacionContrasenaPage } from '../modal-recuperacion-contrasena/modal-recuperacion-contrasena.page';
 import { ResetPasswordPage } from '../reset-password/reset-password.page';
 
@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
     password:''
   }
 
-  constructor(private modalController: ModalController, private utilityService: UtilityService, private loginService: LoginService) { 
+  constructor(private modalController: ModalController, private utilityService: UtilityService, private loginService: LoginService, private navController:NavController) { 
     this.eye="eye-outline";
     this.tipoInput="password";
   }
@@ -96,9 +96,9 @@ export class LoginPage implements OnInit {
       if(res.codigo==200){
         //HOME BIENVENIDO
         console.log("HEMOS HECHO LOGIN");
+        this.navController.navigateRoot('/home');
       }else if(res.codigo==202){
         //INGRESA LAS NUEVAS CREDENCIALES
-        console.log('Ingresa tus nuevas credenciales');
         await this.modalLoginNuevasCredenciales();
 
         if(this.dataNuevasCrendenciales.data.actualizado=='Actualizado'){

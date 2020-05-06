@@ -1,3 +1,50 @@
 <ion-app>
+
+    <ion-menu side="start" menuId="primerMenu" contentId="main">
+
+        <ion-header class="ion-no-border">
+            <ion-toolbar color="purple">
+                <ion-title>ClassUMG</ion-title>
+            </ion-toolbar>
+        </ion-header>
+
+        <ion-content>
+
+            <ion-grid>
+                <ion-row>
+                    <ion-col> 
+                        <ion-avatar>
+                            <img src="../assets/svg/avatars/1.svg">
+                        </ion-avatar>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-label class="label-centrado">Marvin Palma</ion-label>
+                </ion-row>
+                <ion-row>
+                    <ion-label class="label-centrado">estudiante1@miumg.edu.gt</ion-label>
+                </ion-row>
+            </ion-grid>
+
+            <ion-list>
+
+                <ion-menu-toggle autoHide="false" *ngFor="let item of components | async">
+
+                    <ion-item [routerLink]="item.redirectTo" lines="none">
+
+                        <ion-icon [src]="'../assets/svg/icons/'+item.icon" slot="start"></ion-icon>
+
+                        <ion-label>{{item.name}}</ion-label>
+
+                    </ion-item>
+
+                </ion-menu-toggle>
+
+            </ion-list>
+        </ion-content>
+
+    </ion-menu>
+
+
     <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

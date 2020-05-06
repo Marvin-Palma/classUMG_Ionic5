@@ -1,12 +1,32 @@
 [
     {
-        "icon": "albums",
-        "name": "Slides",
-        "redirectTo": "/slides"
+      "icon": "calendario.svg",
+      "name": "Calendario",
+      "redirectTo":"/action-sheet"
     },
     {
-        "icon": "cog",
-        "name": "Tabs",
-        "redirectTo": "/tabs/account"
+      "icon": "libro.svg",
+      "name": "Biblioteca",
+      "redirectTo":"/refresher"
+    },
+    {
+      "icon": "temas-varios.svg",
+      "name": "Temas Varios",
+      "redirectTo":"/searchbar"
+    },
+    {
+      "icon": "feedback.svg",
+      "name": "FeedBack",
+      "redirectTo":"/segment"
+    },
+    {
+      "icon": "trabajo.svg",
+      "name": "Anuncios de empleo",
+      "redirectTo":"/slides"
+    },
+    {
+      "icon": "peon.svg",
+      "name": "Acerca del autor",
+      "redirectTo":"/tabs/account"
     }
-]
+  ]
