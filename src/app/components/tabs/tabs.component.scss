@@ -1,0 +1,25 @@
+
+
+ion-tab-bar{
+    height: 80px;
+}
+
+ion-label{
+    font-size: large;
+    font-family: 'Baloo Bhaina 2 Negrita';
+    color: black;
+}
+
+ion-icon{
+    zoom: 1.5;
+}
+
+ion-tab-bar ion-tab-button {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+}
+
+.tabBar{
+    --background: transparent;
+    --ion-color-base: transparent !important;
+}

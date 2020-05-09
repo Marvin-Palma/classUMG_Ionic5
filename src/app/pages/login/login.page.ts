@@ -121,4 +121,8 @@ export class LoginPage implements OnInit {
 
   }
 
+  invitadoLogin(){
+    this.navController.navigateRoot('/home');
+  }
+
 }
