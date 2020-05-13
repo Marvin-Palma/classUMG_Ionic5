@@ -1,7 +1,15 @@
 
 
 ion-tab-bar{
-    height: 80px;
+    min-height: 80px !important;
+    --background: transparent;
+    --ion-color-base: transparent !important;
+    --opacity: .8;
+    backdrop-filter: saturate(180%) blur(20px);
+}
+
+ion-tabs{
+    min-height: 80px;
 }
 
 ion-label{
@@ -14,12 +22,21 @@ ion-icon{
     zoom: 1.5;
 }
 
-ion-tab-bar ion-tab-button {
+ion-tab-button {
     --background: transparent;
     --ion-color-base: transparent !important;
+    min-width: 80px;
 }
 
 .tabBar{
     --background: transparent;
     --ion-color-base: transparent !important;
+}
+
+ion-footer{
+    --background: transparent;
+    --ion-color-base: transparent !important;
+    min-height: 80px;
+    --opacity: .8;
+    backdrop-filter: saturate(180%) blur(20px);
 }

@@ -188,6 +188,18 @@
   display: block; 
 }
 
+.modalCuadrado .modal-wrapper{
+  bottom: 15%;
+  top: 15%;
+  height: 70%;
+  width: 80%;
+  left: 10%;
+  right: 10%;
+  position: absolute; 
+  display: block; 
+  border-radius: 20px;
+}
+
 .modalVerificacionEmail .modal-wrapper{
   height: 75%;
   top: 25%;

@@ -43,6 +43,10 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
+  {
+    path: 'version-modal',
+    loadChildren: () => import('./pages/version-modal/version-modal.module').then( m => m.VersionModalPageModule)
+  },
 ];
 
 @NgModule({

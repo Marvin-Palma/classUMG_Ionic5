@@ -9,6 +9,7 @@ ion-avatar{
 ion-title{
     text-align: center;
     font-size: x-large;
+    color: black;
 }
 
 .borde{
@@ -24,4 +25,9 @@ ion-icon{
 ion-toolbar{
     --background: transparent;
     --ion-color-base: transparent !important;
+    --opacity: .8;
+}
+
+ion-header{
+    backdrop-filter: saturate(180%) blur(20px);
 }
