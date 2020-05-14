@@ -1,0 +1,27 @@
+
+
+<ion-card>
+
+  <ion-card-header>
+    <ion-card-title>{{noticia.titulo}}</ion-card-title>
+    
+    <ion-card-subtitle *ngIf="noticia.subtitulo">{{noticia.subtitulo}}</ion-card-subtitle>
+
+  </ion-card-header>
+
+  <ion-card-content style="white-space: pre-line;">
+
+    <ion-label>
+      {{noticia.contenido}}
+    </ion-label>
+    <br><br>
+
+    <ion-slides pager="true" *ngIf="noticia.imagenes.length > 1">
+      <ion-slide *ngFor="let img of noticia.imagenes" class="image-slide" [style]=" img.image | domSanitizer">
+      </ion-slide>
+    </ion-slides>
+
+    <ion-img *ngIf="noticia.imagenes.length === 1" [src]="noticia.imagenes[0].url"></ion-img>
+
+  </ion-card-content>
+</ion-card>

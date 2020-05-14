@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { EncabezadoHome } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-encabezado-home',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EncabezadoHomeComponent implements OnInit {
 
-  mensaje:string="Estamos empezando y queremos que esto nunca pare. Gracias por visitarnos. \n\nClassUMG Team. ";
+  @Input() encabezado:EncabezadoHome;
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 }

@@ -2,15 +2,20 @@
 <ion-card>
 
   <ion-card-header>
-    <ion-card-title>Bienvenido a ClassUMG!!!</ion-card-title>
+    <ion-card-title>{{encabezado.titulo}}</ion-card-title>
   </ion-card-header>
 
   <ion-card-content style="white-space: pre-line;">
     <ion-label>
-      {{mensaje}}
+      {{encabezado.contenido}}
     </ion-label>
 
-    <ion-img src="../../../assets/svg/unDraw/404.svg">
-    </ion-img>
+    <ion-slides pager="true" *ngIf="encabezado.imagenes.length > 1">
+      <ion-slide *ngFor="let img of encabezado.imagenes" class="image-slide" [style]=" img.url | domSanitizer">
+      </ion-slide>
+    </ion-slides>
+
+    <ion-img *ngIf="encabezado.imagenes.length === 1" [src]="encabezado.imagenes[0].url"></ion-img>
+    
   </ion-card-content>
 </ion-card>

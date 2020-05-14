@@ -1,4 +1,6 @@
 
+
+
 ion-card{
     box-shadow: 0px 14px 25px rgba(182, 30, 30, 0.59);
     border-radius: 10px;
@@ -12,6 +14,11 @@ ion-label{
 
 ion-card-title{
     text-align: center;
+}
+
+ion-card-subtitle{
+    color: black;
+    font-size: medium;
 }
 
 .image-slide {

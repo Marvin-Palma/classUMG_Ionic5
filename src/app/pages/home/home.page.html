@@ -1,13 +1,13 @@
 
 <app-toolbar></app-toolbar>
 
-<ion-content class="contentHome" scroll-y="true" fullscreen>
+<ion-content class="contentHome" fullscreen>
 
-    <app-encabezado-home></app-encabezado-home>
-    <app-encabezado-home></app-encabezado-home>
-    <app-encabezado-home></app-encabezado-home>
-    <app-encabezado-home></app-encabezado-home>
-    <app-encabezado-home></app-encabezado-home>
+    <app-encabezado-home [encabezado]="encabezadoPorEnviar"></app-encabezado-home>
+
+    <app-secciones-home></app-secciones-home>
+
+    <app-noticia-home [noticia]="noticiaPorEnviar"></app-noticia-home>
 
 </ion-content>
 
