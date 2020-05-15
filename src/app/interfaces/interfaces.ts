@@ -5,7 +5,7 @@ export interface respuestaServidorNormal{
   codigo?:Number,
   status?:Boolean,
   jwt?:String,
-  mensaje?:String
+  mensaje?:any
 }
 //////////////////////////////////////////// FIN  RESPUESTA NORMAL DE SERVIDOR   ///////////////////////
 

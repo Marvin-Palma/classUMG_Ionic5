@@ -9,22 +9,28 @@ import { respuestaServidorNormal } from '../../interfaces/interfaces';
 @Injectable({
   providedIn: 'root'
 })
-export class NuevasCredencialesService {
+export class HomeService {
 
   jwt:any;
   constructor(private http:HttpClient, private storage:Storage) { 
-    this.storage.get('jwt').then(res=>{
-      this.jwt = res;
-    });
+    
   }
 
-  nuevasCredencialesLogin(usuario){
-    const headers = new HttpHeaders({
+  async obtenerInfoUsuario(){
+    await this.storage.get('jwt').then(res=>{
+      if(res!=null){
+        this.jwt = res;
+      }else{
+        this.jwt = "tokenInvalido";
+      }
+    });
+    const headers = await new HttpHeaders({
       'x-token': this.jwt
     });
-    console.log(headers);
-    return this.http.post<respuestaServidorNormal>(environment.apiURL+'/nuevas-credenciales', usuario, {headers});
+
+    return this.http.post<respuestaServidorNormal>(environment.apiURL+'/info-usuario', this.jwt, {headers});
     
   }
 
 }
+

@@ -6,6 +6,7 @@ import { ResetPasswordPage } from '../reset-password/reset-password.page';
 import { UtilityService } from '../../services/utility/utility.service';
 import { LoginService } from '../../services/login/login.service';
 import { ModalVerificacionEmailPage } from '../modal-verificacion-email/modal-verificacion-email.page';
+import { HomeService } from '../../services/home/home.service';
 
 @Component({
   selector: 'app-login',
@@ -24,12 +25,23 @@ export class LoginPage implements OnInit {
     password:''
   }
 
-  constructor(private modalController: ModalController, private utilityService: UtilityService, private loginService: LoginService, private navController:NavController) { 
+  constructor(private modalController: ModalController, 
+    private utilityService: UtilityService, 
+    private loginService: LoginService, 
+    private navController:NavController,
+    private homeService:HomeService) { 
+
     this.eye="eye-outline";
     this.tipoInput="password";
   }
 
-  ngOnInit() {
+  ngOnInit(){
+    // this.homeService.obtenerInfoUsuario().subscribe(async res=>{
+    //   console.log("Adentro");
+    //   if(res.status==true){
+    //     this.navController.navigateRoot('/home');
+    //   }
+    // });
   }
 
   clickEye(){

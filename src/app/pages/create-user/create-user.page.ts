@@ -60,7 +60,7 @@ export class CreateUserPage implements OnInit {
   }
 
   async crearCuenta() {
-    this.usuario.avatar = this.direccionAvatar;
+    this.usuario.avatar = this.direccionAvatar.split("/", 10)[6].split(".", 2)[0];
 
     //Inicio de validaciones
     

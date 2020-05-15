@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EncabezadoHome, NoticiaHome } from '../../interfaces/interfaces';
+import { HomeService } from '../../services/home/home.service';
 
 @Component({
   selector: 'app-home',
@@ -33,9 +34,14 @@ export class HomePage implements OnInit {
     ]
   };
   
-  constructor() { }
+  constructor(private homeService:HomeService) { }
 
   ngOnInit() {
+    this.homeService.obtenerInfoUsuario().then(res=>{
+      res.subscribe(async res=>{
+        console.log(res);
+      });
+    });
   }
 
 }

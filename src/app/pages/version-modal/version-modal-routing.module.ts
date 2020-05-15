@@ -4,10 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { VersionModalPage } from './version-modal.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: VersionModalPage
-  }
+  // {
+  //   path: '',
+  //   component: VersionModalPage
+  // }
 ];
 
 @NgModule({

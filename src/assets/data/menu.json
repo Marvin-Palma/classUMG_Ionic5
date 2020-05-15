@@ -15,6 +15,11 @@
       "redirectTo":"/searchbar"
     },
     {
+      "icon": "lideres.svg",
+      "name": "Líderes del foro",
+      "redirectTo":"/searchbar"
+    },
+    {
       "icon": "feedback.svg",
       "name": "FeedBack",
       "redirectTo":"/segment"
