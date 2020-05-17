@@ -36,12 +36,6 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit(){
-    // this.homeService.obtenerInfoUsuario().subscribe(async res=>{
-    //   console.log("Adentro");
-    //   if(res.status==true){
-    //     this.navController.navigateRoot('/home');
-    //   }
-    // });
   }
 
   clickEye(){

@@ -1,4 +1,20 @@
 
+//****************************************** Interfaces Redux               **********************/
+
+
+export interface appState{
+  usuario: any;
+}
+
+export interface usuarioState{
+  avatar: string,
+  email: string,
+  nombre: string,
+  stars: number,
+}
+
+//****************************************** Fin Interfaces Redux           **********************/
+
 
 //////////////////////////////////////////// RESPUESTA NORMAL DE SERVIDOR   ///////////////////////
 export interface respuestaServidorNormal{

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController, ModalController, NavController } from '@ionic/angular';
 import { VersionModalPage } from '../../pages/version-modal/version-modal.page';
+import { Store } from '@ngrx/store';
+import { appState } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-toolbar',
@@ -9,7 +11,15 @@ import { VersionModalPage } from '../../pages/version-modal/version-modal.page';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor(private menuController:MenuController, private modalController:ModalController, private navController:NavController) { }
+  avatarDir="1";
+  constructor(private menuController:MenuController, 
+    private modalController:ModalController, 
+    private navController:NavController,
+    private store: Store<appState>) { 
+      this.store.select('usuario').subscribe(usuario=>{
+        this.avatarDir=usuario.avatar;
+      });
+    }
 
   ngOnInit() {}
 

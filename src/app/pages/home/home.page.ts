@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { EncabezadoHome, NoticiaHome } from '../../interfaces/interfaces';
 import { HomeService } from '../../services/home/home.service';
 
+import { Store } from '@ngrx/store';
+import * as usuarioActions from '../../actions/usuario.actions';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -34,12 +37,13 @@ export class HomePage implements OnInit {
     ]
   };
   
-  constructor(private homeService:HomeService) { }
+  constructor(private homeService:HomeService, private store:Store) { }
 
   ngOnInit() {
     this.homeService.obtenerInfoUsuario().then(res=>{
       res.subscribe(async res=>{
-        console.log(res);
+        console.log(res.mensaje);
+        this.store.dispatch(usuarioActions.guardarDatosCompletos({usuario:res.mensaje}));
       });
     });
   }
