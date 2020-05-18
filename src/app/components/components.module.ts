@@ -9,6 +9,11 @@ import { EncabezadoHomeComponent } from './encabezado-home/encabezado-home.compo
 import { SeccionesHomeComponent } from './secciones-home/secciones-home.component';
 import { NoticiaHomeComponent } from './noticia-home/noticia-home.component';
 import { PipesModule } from '../pipes/pipes.module';
+import { SideMenuComponent } from './side-menu/side-menu.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+];
 
 
 @NgModule({
@@ -20,20 +25,23 @@ import { PipesModule } from '../pipes/pipes.module';
     TabsComponent,
     EncabezadoHomeComponent,
     SeccionesHomeComponent,
-    NoticiaHomeComponent
+    NoticiaHomeComponent,
+    SideMenuComponent
   ],
   exports:[
     ToolbarComponent,
     TabsComponent,
     EncabezadoHomeComponent,
     SeccionesHomeComponent,
-    NoticiaHomeComponent
+    NoticiaHomeComponent,
+    SideMenuComponent
   ],
   imports: [
     CommonModule,
     IonicModule,
     VersionModalPageModule,
-    PipesModule
+    PipesModule,
+    [RouterModule.forChild(routes)],
   ]
 })
 export class ComponentsModule { }

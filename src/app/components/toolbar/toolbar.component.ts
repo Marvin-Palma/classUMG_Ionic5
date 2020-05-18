@@ -11,17 +11,24 @@ import { appState } from '../../interfaces/interfaces';
 })
 export class ToolbarComponent implements OnInit {
 
-  avatarDir="1";
+  avatarDir='';
   constructor(private menuController:MenuController, 
     private modalController:ModalController, 
     private navController:NavController,
-    private store: Store<appState>) { 
-      this.store.select('usuario').subscribe(usuario=>{
-        this.avatarDir=usuario.avatar;
-      });
+    private store: Store<appState>
+    ) { 
+      this.store.select('usuario').subscribe(usuario=>this.avatarDir=usuario.avatar);
     }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("Entra");
+    this.menuController.enable(true);
+  }
+  
+  ngOnDestroy(){
+    console.log("Sale");
+    this.menuController.enable(false);
+  }
 
   async modalVersion(){
     const modal = await this.modalController.create({
@@ -39,6 +46,11 @@ export class ToolbarComponent implements OnInit {
 
   toggleMenu(){
     this.menuController.toggle();
+  }
+
+  crearCuenta(){
+    this.navController.navigateRoot('/login');
+    this.navController.navigateForward('/create-user');
   }
 
 }

@@ -37,15 +37,22 @@ export class HomePage implements OnInit {
     ]
   };
   
-  constructor(private homeService:HomeService, private store:Store) { }
-
-  ngOnInit() {
+  constructor(private homeService:HomeService, private store:Store) { 
+  }
+  
+  ionViewWillEnter(){
+    console.log("INICIA HOME");
     this.homeService.obtenerInfoUsuario().then(res=>{
+      console.log(res);
       res.subscribe(async res=>{
-        console.log(res.mensaje);
-        this.store.dispatch(usuarioActions.guardarDatosCompletos({usuario:res.mensaje}));
+        if(res.mensaje!='Token inválido.'){
+          this.store.dispatch(usuarioActions.guardarDatosCompletos({usuario:res.mensaje}));
+        }
       });
     });
+  }
+
+  ngOnInit() {
   }
 
 }

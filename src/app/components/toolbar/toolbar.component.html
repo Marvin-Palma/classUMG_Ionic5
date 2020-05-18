@@ -14,9 +14,12 @@
 
     <ion-buttons slot="end">
       <ion-avatar>
-        <ion-img src="../../../assets/svg/avatars/{{avatarDir}}.svg"></ion-img>
+        <ion-img src="../../../assets/svg/avatars/{{avatarDir}}.svg" *ngIf="avatarDir!=''"></ion-img>
+        <ion-img src="../../../assets/svg/avatars/0.png" *ngIf="avatarDir==''" (click)="crearCuenta()"></ion-img>
       </ion-avatar>
     </ion-buttons>
 
   </ion-toolbar>
 </ion-header>
+
+<!-- <app-side-menu></app-side-menu> -->

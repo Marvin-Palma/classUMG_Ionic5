@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController, ModalController } from '@ionic/angular';
+import { NavController, ModalController, MenuController } from '@ionic/angular';
 import { ModalAvatarsPage } from '../modal-avatars/modal-avatars.page';
 
 import { CreateUserService } from '../../services/create-user/create-user.service';
@@ -33,12 +33,22 @@ export class CreateUserPage implements OnInit {
   type2: string = "password";
   type3: string = "password";
 
-  constructor(private alertController: AlertController, private navController: NavController, private modalController: ModalController,
-    private createUserService: CreateUserService, private utilityService: UtilityService) { }
+  constructor(
+    private navController: NavController, 
+    private modalController: ModalController,
+    private createUserService: CreateUserService, 
+    private utilityService: UtilityService,
+    private menuController: MenuController
+    ) { }
 
   ngOnInit() {
     this.numeroImagen = Math.floor(Math.random() * (96 - 1)) + 1;
     this.direccionAvatar = "../../../assets/svg/avatars/" + this.numeroImagen + ".svg";
+    this.menuController.enable(false);
+  }
+  
+  ngOnDestroy(){
+    this.menuController.enable(true);
   }
 
   async cambiarAvatar() {

@@ -6,7 +6,6 @@ import { ResetPasswordPage } from '../reset-password/reset-password.page';
 import { UtilityService } from '../../services/utility/utility.service';
 import { LoginService } from '../../services/login/login.service';
 import { ModalVerificacionEmailPage } from '../modal-verificacion-email/modal-verificacion-email.page';
-import { HomeService } from '../../services/home/home.service';
 
 @Component({
   selector: 'app-login',
@@ -28,8 +27,8 @@ export class LoginPage implements OnInit {
   constructor(private modalController: ModalController, 
     private utilityService: UtilityService, 
     private loginService: LoginService, 
-    private navController:NavController,
-    private homeService:HomeService) { 
+    private navController:NavController
+    ) { 
 
     this.eye="eye-outline";
     this.tipoInput="password";
