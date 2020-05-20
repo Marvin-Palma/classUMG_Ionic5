@@ -1,0 +1,170 @@
+
+<app-toolbar></app-toolbar>
+
+<ion-content class="contentInfo" fullscreen>
+
+  <ion-grid class="ion-no-padding">
+
+    <ion-row style="height: 50px;">
+
+      <ion-col size="10"></ion-col>
+      <ion-col size="2">
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-icon class="star" src="../../assets/svg/icons/star.svg"></ion-icon>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center" style="margin-top: -16px;">
+            <ion-label style="font-size: x-large;">{{stars}}</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-avatar (click)="cambiarAvatar()">
+          <img [src]="direccionAvatar">
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-item class="itemNombre">
+        <ion-input class="inputNombre" maxlength="20" placeholder="Ingresa tu nickname" [(ngModel)]="usuario.nombre"></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="2"></ion-col>
+      <ion-col size="8">
+        <br>
+        <ion-button color="purple" shape="round" expand="full" (click)="guardarAvatarNombre()">
+          <ion-label>Guardar Avatar y Nombre</ion-label>
+        </ion-button>
+      </ion-col>
+      <ion-col size="2"></ion-col>
+    </ion-row>
+
+    <ion-row style="margin-top: 50px;">
+      <ion-col>
+
+        <ion-item (click)="configPassword()" style="--background: transparent;" lines="none">
+          <ion-label style="font-size: larger;">
+            Cambiar Contraseña
+          </ion-label>
+          <ion-icon [name]="flecha" color="dark" style="zoom: 1.2;"></ion-icon>
+        </ion-item>
+        
+        <div *ngIf="cambiaPassword" class="contents ion-padding animate__animated animate__backInDown" >
+
+          <ion-row>
+            <ion-label>Contraseña:</ion-label>
+          </ion-row>
+
+          <ion-row>
+            <ion-item style="border-radius: 10px; width: 100%;" lines="none">
+              <ion-input placeholder="Mínimo 8 carácteres" class="inputDatosPersonales" [type]="type1" maxlength="19" [(ngModel)]="usuario.password"></ion-input>
+              <ion-icon [name]="eye1" 
+              slot="end" 
+              mode="md" 
+              (click)="eye1=='eye-outline'?eye1='eye-off-outline':eye1='eye-outline'; type1=='password'?type1='text':type1='password'"></ion-icon>
+            </ion-item>
+          </ion-row>
+
+          <ion-row style="margin-top: 7px;">
+            <ion-label>Confirma tu contraseña:</ion-label>
+          </ion-row>
+
+          <ion-row>
+            <ion-item style="border-radius: 10px; width: 100%;" lines="none">
+              <ion-input placeholder="Mínimo 8 carácteres" class="inputDatosPersonales" [type]="type2" maxlength="19" [(ngModel)]="usuario.passwordConfirm"></ion-input>
+              <ion-icon [name]="eye2" slot="end" mode="md" 
+              (click)="eye2=='eye-outline'?eye2='eye-off-outline':eye2='eye-outline'; type2=='password'?type2='text':type2='password'">
+              </ion-icon>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="2"></ion-col>
+            <ion-col size="8">
+              <br>
+              <ion-button color="purple" shape="round" expand="full" (click)="guardarNuevaPassword()">
+                <ion-label>Guardar nueva contraseña</ion-label>
+              </ion-button>
+            </ion-col>
+            <ion-col size="2"></ion-col>
+          </ion-row>
+
+        </div>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row style="margin-top: 10px;">
+      <ion-col>
+
+        <ion-item (click)="configPreguntasSeg()" style="--background: transparent;" lines="none">
+          <ion-label style="font-size: larger;">
+            Cambiar Pregunta de Seguridad
+          </ion-label>
+          <ion-icon [name]="flecha2" color="dark" style="zoom: 1.2;"></ion-icon>
+        </ion-item>
+
+        <div *ngIf="cambiaPreguntas" class="contents ion-padding animate__animated animate__backInDown" >
+          <ion-label style="padding: 0px !important;">Pregunta de seguridad:</ion-label>
+          <ion-item style="border-radius: 10px;">
+            <ion-select interface="action-sheet" mode="ios" cancelText="Cancelar" style="min-width: 100%; padding: 0px;" [(ngModel)]="usuario.pregunta">
+            <ion-select-option value="¿Cuál es tu mayor meta?">¿Cuál es tu mayor meta?</ion-select-option>
+              <ion-select-option value="¿Cuál es tu curso favorito?">¿Cuál es tu curso favorito?</ion-select-option>
+              <ion-select-option value="¿Qué te hace sentir felicidad?">¿Qué te hace sentir felicidad?</ion-select-option>
+              <ion-select-option value="¿Cuál fue tu primer lenguaje de programación?">¿Cuál fue tu primer lenguaje de programación?</ion-select-option>
+              <ion-select-option value="¿Cuál es tu canción favorita?">¿Cuál es tu canción favorita?</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-row>
+            <ion-label style="padding: 0px !important; margin-top: 7px;">Respuesta a pregunta de seguridad:</ion-label>
+          </ion-row>
+          <ion-row>
+              <ion-item style="border-radius: 10px; width: 100%;" lines="none">
+                <ion-input placeholder="Ingresa tu respuesta" class="inputDatosPersonales" [type]="type3" maxlength="20" [(ngModel)]="usuario.respuestaPregunta"></ion-input>
+                <ion-icon [name]="eye3" slot="end" mode="md" 
+                (click)="eye3=='eye-outline'?eye3='eye-off-outline':eye3='eye-outline'; type3=='password'?type3='text':type3='password'">
+                </ion-icon>
+              </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="2"></ion-col>
+            <ion-col size="8">
+              <br>
+              <ion-button color="purple" shape="round" expand="full" (click)="guardarNuevaPregunta()">
+                <ion-label>Guardar nueva pregunta</ion-label>
+              </ion-button>
+            </ion-col>
+            <ion-col size="2"></ion-col>
+          </ion-row>
+
+        </div>
+
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col size="2"></ion-col>
+      <ion-col size="8">
+        <br>
+        <ion-button color="purple" shape="round" expand="full" (click)="cerrarSesion()">
+          <ion-label>Cerrar Sesión</ion-label>
+        </ion-button>
+      </ion-col>
+      <ion-col size="2"></ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>
+
+<app-tabs></app-tabs>

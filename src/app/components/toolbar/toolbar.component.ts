@@ -21,13 +21,11 @@ export class ToolbarComponent implements OnInit {
     }
 
   ngOnInit() {
-    console.log("Entra");
     this.menuController.enable(true);
   }
   
   ngOnDestroy(){
-    console.log("Sale");
-    this.menuController.enable(false);
+    // this.menuController.enable(false);
   }
 
   async modalVersion(){
@@ -51,6 +49,10 @@ export class ToolbarComponent implements OnInit {
   crearCuenta(){
     this.navController.navigateRoot('/login');
     this.navController.navigateForward('/create-user');
+  }
+
+  infoUsuario(){
+    this.navController.navigateForward('/info-user');
   }
 
 }

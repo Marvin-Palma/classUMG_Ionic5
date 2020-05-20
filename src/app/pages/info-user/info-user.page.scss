@@ -1,0 +1,41 @@
+
+
+.contentInfo{
+    --background: linear-gradient(20deg, rgb(31, 162, 255), rgb(18, 216, 250), rgb(166, 255, 203));
+}
+
+ion-avatar{
+    text-align: center;
+    zoom: 1.7;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ion-avatar img{
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    border: solid rgb(120, 90, 230) !important;
+}
+
+.itemNombre{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: auto;
+    margin-bottom: auto;
+    --background: transparent;
+    --highlight-background: rgb(120, 90, 230) !important;
+}
+
+.inputNombre{
+    text-align: center;
+    font-size: larger;
+}
+
+.star{
+    zoom: 2;
+    padding-top: 10px;
+}
+
+.contents{
+    --background: transparent;
+}

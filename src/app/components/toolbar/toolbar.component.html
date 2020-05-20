@@ -4,7 +4,7 @@
 
     <ion-buttons slot="start">
       <ion-button (click)="toggleMenu()">
-        <ion-icon name="menu-sharp" menu="primerMenu" color="primary"></ion-icon>
+        <ion-icon name="menu-sharp" menu="primerMenu" color="purple"></ion-icon>
       </ion-button>
 
     </ion-buttons>
@@ -14,7 +14,7 @@
 
     <ion-buttons slot="end">
       <ion-avatar>
-        <ion-img src="../../../assets/svg/avatars/{{avatarDir}}.svg" *ngIf="avatarDir!=''"></ion-img>
+        <ion-img src="../../../assets/svg/avatars/{{avatarDir}}.svg" *ngIf="avatarDir!=''" (click)="infoUsuario()"></ion-img>
         <ion-img src="../../../assets/svg/avatars/0.png" *ngIf="avatarDir==''" (click)="crearCuenta()"></ion-img>
       </ion-avatar>
     </ion-buttons>

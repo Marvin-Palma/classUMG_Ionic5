@@ -6,3 +6,7 @@ export const guardarDatosCompletos = createAction(
     '[Usuario] guardarDatosCompletos', 
     props<{usuario:usuarioState}>()
 );
+
+export const borrarDatosCompletos = createAction(
+    '[Usuario] borrarDatosCompletos'
+);

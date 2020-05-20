@@ -38,5 +38,10 @@ export class SideMenuComponent implements OnInit {
     this.navController.navigateForward('/create-user');
     this.menuController.toggle();
   }
+  
+  infoUser(){
+    this.navController.navigateForward('/info-user');
+    this.menuController.toggle();
+  }
 
 }

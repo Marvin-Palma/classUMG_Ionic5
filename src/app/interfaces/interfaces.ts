@@ -11,6 +11,7 @@ export interface usuarioState{
   email: string,
   nombre: string,
   stars: number,
+  preguntaSeguridad:string
 }
 
 //****************************************** Fin Interfaces Redux           **********************/

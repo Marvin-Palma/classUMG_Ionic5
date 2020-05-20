@@ -5,6 +5,16 @@ ion-card{
     border-radius: 20px;
     border: none !important;
     box-shadow: none;
+    margin: 0px;
+    --background: transparent;
+}
+
+ion-content{
+    --background: linear-gradient(20deg, rgb(31, 162, 255), rgb(18, 216, 250), rgb(166, 255, 203));
+}
+
+ion-card-title{
+    color: black;
 }
 
 .large{
@@ -12,4 +22,8 @@ ion-card{
 }
 .medium{
     font-size: medium;
+}
+
+ion-label{
+    color: black;
 }

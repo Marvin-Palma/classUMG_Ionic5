@@ -14,7 +14,7 @@
           <ion-row>
               <ion-col> 
                   <ion-avatar>
-                      <img src="../assets/svg/avatars/{{avatar}}.svg" *ngIf="avatar!=''">
+                      <img src="../assets/svg/avatars/{{avatar}}.svg" *ngIf="avatar!=''" (click)="infoUser()">
                       <img src="../assets/svg/avatars/0.png" *ngIf="avatar==''" (click)="crearCuenta()">
                   </ion-avatar>
               </ion-col>

@@ -2,7 +2,7 @@
 <ion-content>
   <ion-card class="ion-no-border">
     <ion-card-header>
-      <ion-icon src="../../../assets/svg/unDraw/polaroid.svg" style="zoom:10;" class="animated pulse slow infinite"></ion-icon>
+      <ion-icon src="../../../assets/svg/unDraw/polaroid.svg" style="zoom:10;" class="animate__animated animate__pulse animate__slow animate__infinite"></ion-icon>
       <ion-card-title>ClassUMG</ion-card-title>
     </ion-card-header>
     <ion-card-content>
@@ -18,7 +18,15 @@
       <ion-label class="medium">
         Gracias por usar nuestros servicios.
       </ion-label><br><br>
-      <ion-button color="warning" (click)="salir()">Salir</ion-button>
+      <ion-row>
+        <ion-col size="2"></ion-col>
+        <ion-col size="8">
+          <ion-button color="purple" shape="round" expand="full" (click)="salir()">
+            <ion-label style="color: white !important;">Entendido</ion-label>
+          </ion-button>
+        </ion-col>
+        <ion-col size="2"></ion-col>
+      </ion-row>
     </ion-card-content>
   </ion-card>
 </ion-content>
