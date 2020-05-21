@@ -22,7 +22,8 @@ export interface respuestaServidorNormal{
   codigo?:Number,
   status?:Boolean,
   jwt?:String,
-  mensaje?:any
+  mensaje?:any,
+  usuario?:any
 }
 //////////////////////////////////////////// FIN  RESPUESTA NORMAL DE SERVIDOR   ///////////////////////
 

@@ -57,7 +57,7 @@
           <ion-icon [name]="flecha" color="dark" style="zoom: 1.2;"></ion-icon>
         </ion-item>
         
-        <div *ngIf="cambiaPassword" class="contents ion-padding animate__animated animate__backInDown" >
+        <div *ngIf="cambiaPassword" [ngClass]="clasePassword" >
 
           <ion-row>
             <ion-label>Contraseña:</ion-label>
@@ -112,7 +112,7 @@
           <ion-icon [name]="flecha2" color="dark" style="zoom: 1.2;"></ion-icon>
         </ion-item>
 
-        <div *ngIf="cambiaPreguntas" class="contents ion-padding animate__animated animate__backInDown" >
+        <div *ngIf="cambiaPreguntas" [ngClass]="clasePreguntas" >
           <ion-label style="padding: 0px !important;">Pregunta de seguridad:</ion-label>
           <ion-item style="border-radius: 10px;">
             <ion-select interface="action-sheet" mode="ios" cancelText="Cancelar" style="min-width: 100%; padding: 0px;" [(ngModel)]="usuario.pregunta">
